@@ -8,17 +8,16 @@ const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
+const { verificationEmailTemplate } = require("../utils/EmailTemplates");
 
 // create user
 router.post("/create-user", async (req, res, next) => {
   try {
     const { name, email, password, avatar } = req.body;
     const userEmail = await User.findOne({ email });
-
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
-
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
       folder: "avatars",
     });
@@ -35,13 +34,14 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://eshop-tutorial-pyri.vercel.app/activation/${activationToken}`;
+    const activationUrl = `${process.env.HOST}/api/v2/user/activation/${activationToken}`;
 
     try {
+      const emailTemplate = verificationEmailTemplate(user.name, activationUrl);
       await sendMail({
         email: user.email,
-        subject: "Activate your account",
-        message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
+        subject: "E-commerce - Activate your account",
+        message: emailTemplate,
       });
       res.status(201).json({
         success: true,
@@ -58,17 +58,16 @@ router.post("/create-user", async (req, res, next) => {
 // create activation token
 const createActivationToken = (user) => {
   return jwt.sign(user, process.env.ACTIVATION_SECRET, {
-    expiresIn: "5m",
+    expiresIn: "10m",
   });
 };
 
 // activate user
-router.post(
-  "/activation",
+router.get(
+  "/activation/:token",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { activation_token } = req.body;
-
+      const activation_token = req.params.token;
       const newUser = jwt.verify(
         activation_token,
         process.env.ACTIVATION_SECRET
