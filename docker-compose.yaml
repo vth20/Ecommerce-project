@@ -1,0 +1,70 @@
+version: "3"
+name: ecommerce-project
+services:
+  mongo:
+    container_name: mongo-db
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: ecommerce-db
+    networks:
+      - ecommerce-network
+    volumes:
+      - mongo:/data/db
+      # - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_SERVER: mongo
+    networks:
+      - ecommerce-network
+    depends_on:
+      - mongo
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ./ecommerce:/home/node/app
+    networks:
+      - ecommerce-network
+    depends_on:
+      - mongo
+  frontend:
+    container_name: frontend
+    tty: true
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    networks:
+      - ecommerce-network
+  socket:
+    container_name: socket
+    build:
+      context: ./socket
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    networks:
+      - ecommerce-network
+networks:
+  ecommerce-network:
+    driver: bridge
+volumes:
+  mongo:
