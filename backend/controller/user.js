@@ -18,17 +18,23 @@ router.post("/create-user", async (req, res, next) => {
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars",
-    });
+    let myCloud = null;
+    if (avatar) {
+      myCloud = await cloudinary.v2.uploader.upload(avatar, {
+        folder: "avatars",
+      });
+    }
 
     const user = {
       name: name,
       email: email,
       password: password,
-      avatar: {
+      avatar: avatar ? {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
+      } : {
+        public_id: '',
+          url: 'https://res.cloudinary.com/vth20/image/upload/v1658138187/dbhvs4ankmsdsdhkszlp.jpg',
       },
     };
 
