@@ -1,12 +1,12 @@
 FROM node:16-alpine
 
-WORKDIR /ecommerce-socket
+WORKDIR /usr/src/ecommerce-socket
 
 COPY package.json package-lock.json*  ./
 
 RUN npm install
 
-COPY . /ecommerce-socket
+COPY . /usr/src/ecommerce-socket
 
 EXPOSE 4000
 
