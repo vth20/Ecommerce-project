@@ -1,15 +1,13 @@
 FROM node:16-alpine
 
-WORKDIR /ecommerce-ui
-
-ENV MONGO_DB_USERNAME=admin \
-	MONGO_DB_PWD=password
+WORKDIR /usr/src/ecommerce-ui
 
 COPY package.json package-lock.json*  ./
 
 RUN npm install -f
 
-COPY . /ecommerce-ui
+# had been mounted for debug
+# COPY . /usr/src/ecommerce-ui
 
 EXPOSE 3000
 
