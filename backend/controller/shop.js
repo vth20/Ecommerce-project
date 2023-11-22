@@ -9,6 +9,8 @@ const cloudinary = require("cloudinary");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 const sendShopToken = require("../utils/shopToken");
+const { verificationEmailTemplate } = require("../utils/EmailTemplates");
+
 
 // create shop
 router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
@@ -39,13 +41,14 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `${process.env.HOST}/seller/activation/${activationToken}`;
+    const activationUrl = `${process.env.HOST}/api/v2/seller/activation/${activationToken}`;
 
     try {
+      const emailTemplate = verificationEmailTemplate(seller.name, activationUrl);
       await sendMail({
         email: seller.email,
         subject: "Activate your Shop",
-        message: `Hello ${seller.name}, please click on the link to activate your shop: ${activationUrl}`,
+        message: emailTemplate,
       });
       res.status(201).json({
         success: true,
@@ -62,16 +65,16 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 // create activation token
 const createActivationToken = (seller) => {
   return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
-    expiresIn: "5m",
+    expiresIn: "10m",
   });
 };
 
 // activate user
-router.post(
-  "/activation",
+router.get(
+  "/activation/:token",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { activation_token } = req.body;
+      const  activation_token = req.params.token;
 
       const newSeller = jwt.verify(
         activation_token,
