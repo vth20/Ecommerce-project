@@ -6,12 +6,18 @@ import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
 import ProductCard from "../components/Route/ProductCard/ProductCard";
 import styles from "../styles/styles";
+import { createContext } from "react";
+import { useContext } from "react";
+
+
+export const CartContext = createContext();
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
   const categoryData = searchParams.get("category");
   const {allProducts,isLoading} = useSelector((state) => state.products);
   const [data, setData] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (categoryData === null) {

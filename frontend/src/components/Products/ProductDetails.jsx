@@ -36,6 +36,7 @@ const ProductDetails = ({ data }) => {
     } else {
       setClick(false);
     }
+    console.log(getAllProductsShop(data && data?.shop._id))
   }, [data, wishlist]);
 
   const incrementCount = () => {
