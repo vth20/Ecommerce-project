@@ -41,7 +41,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `${process.env.HOST}/api/v2/seller/activation/${activationToken}`;
+    const activationUrl = `${process.env.HOST}/api/v2/shop/activation/${activationToken}`;
 
     try {
       const emailTemplate = verificationEmailTemplate(seller.name, activationUrl);
