@@ -7,7 +7,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon --legacy-watch server.js",
     "start": "node server.js"
   },
   "author": "shahriar Sajeeb",

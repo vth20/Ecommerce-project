@@ -4,6 +4,7 @@ services:
   mongo:
     container_name: mongo-db
     image: mongo
+    restart: always
     ports:
       - 27017:27017
     environment:
@@ -21,6 +22,7 @@ services:
   mongo-express:
     container_name: mongo-express
     image: mongo-express
+    restart: always
     ports:
       - 8081:8081
     environment:
@@ -34,10 +36,10 @@ services:
     depends_on:
       - mongo
   backend:
+    container_name: backend
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
     restart: always
     ports:
       - 8000:8000
@@ -53,6 +55,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    restart: always
     ports:
       - 3000:3000
     depends_on:
