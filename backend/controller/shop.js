@@ -39,7 +39,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `https://eshop-tutorial-pyri.vercel.app/seller/activation/${activationToken}`;
+    const activationUrl = `${process.env.HOST}/seller/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -220,7 +220,7 @@ router.put(
           url: myCloud.secure_url,
         };
 
-  
+
       await existsSeller.save();
 
       res.status(200).json({

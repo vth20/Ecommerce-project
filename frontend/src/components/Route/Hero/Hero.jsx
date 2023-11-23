@@ -1,37 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
+import Main1 from "../../../img/header/home-img-1.jpg";
+import Main2 from "../../../img/header/home-img-2.jpg";
+import Main3 from "../../../img/header/home-img-3.jpg";
+import Main4 from "../../../img/header/home-img-4.jpg";
+import "./Header.css";
+
 
 const Hero = () => {
   return (
-    <div
-      className={`relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
-      style={{
-        backgroundImage:
-          "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
-      }}
-    >
-      <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
-        <h1
-          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
-        >
-          Best Collection for <br /> home Decoration
-        </h1>
-        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-          assumenda? Quisquam itaque <br /> exercitationem labore vel, dolore
-          quidem asperiores, laudantium temporibus soluta optio consequatur{" "}
-          <br /> aliquam deserunt officia. Dolorum saepe nulla provident.
-        </p>
-        <Link to="/products" className="inline-block">
-            <div className={`${styles.button} mt-5`}>
-                 <span className="text-[#fff] font-[Poppins] text-[18px]">
-                    Shop Now
-                 </span>
+    <>
+      <div className="home-container">
+        <div className="container">
+          <div className="grid-container">
+            <div className="featured grid-one">
+              <Link to="categories/furnitures">
+                <div id="img1" className="lil-overlay"></div>
+                <img src={Main1} alt="img1" />
+                <p className="main-description">Live Comfortably</p>
+              </Link>
             </div>
-        </Link>
+            <div className="featured grid-two">
+              <Link to="categories/skin-care">
+                <div id="img2" className="lil-overlay"></div>
+                <img src={Main2} alt="img2" />
+                <p className="main-description">Skincare</p>
+              </Link>
+            </div>
+            <div className="featured grid-four">
+              <Link to="categories/kitchen">
+                <div id="img3" className="lil-overlay"></div>
+                <img src={Main3} alt="img3" />
+                <p className="main-description">Kitchen</p>
+              </Link>
+            </div>
+            <div className="featured grid-four-low">
+              <Link to="categories/electronics">
+                <div id="img4" className="lil-overlay"></div>
+                <img src={Main4} alt="img4" />
+                <p className="main-description">Electronics</p>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
