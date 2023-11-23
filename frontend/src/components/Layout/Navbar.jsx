@@ -121,7 +121,7 @@ function Navbar() {
                 onClick={() => setMobileNav(!mobileNav)}
                 to="/login"
               >
-                Login
+                <IconUser />
               </Link>
               <i
                 data-array-length={cartItem.length}
