@@ -96,7 +96,7 @@ function Navbar() {
               />
             </Link>
             <div className="nav-links">
-              <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
+              <Link onClick={() => window.scrollTo(0, 0)} to="/categories">
                 categories
               </Link>
               <Link

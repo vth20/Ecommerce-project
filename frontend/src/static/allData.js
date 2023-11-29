@@ -59,25 +59,25 @@ import MatLamp2 from "../img/products/otherProducts/mat2.webp";
 import Comfy1 from "../img/products/otherProducts/comfy1.webp";
 import Comfy2 from "../img/products/otherProducts/comfy2.webp";
 
-export const items = [
+const itemsproud = [
   {
-    id: 1,
+    id: "6565a303979d9a62d55b2e21",
     category: "chair",
     img: Img1,
-    description: "Little Armchair Sheepskin",
+    description: "Ghế bành nhỏ da cừu",
     price: 986,
     otherImgs: [OtherImgs1, OtherImgs2],
     specs:
-      "Tradition Little Petra VB1 Armchair Sheepskin Moonlight/ Walnut/ Brass Limited Edition | We give you a special discount when you put this product in the basket.",
+      "Ghế bành truyền thống Little Petra VB1 Da cừu Ánh trăng/ Quả óc chó/ Đồng thau Phiên bản giới hạn | Chúng tôi giảm giá đặc biệt cho bạn khi bạn bỏ sản phẩm này vào giỏ hàng",
     texture: "Sheep Skin",
     weight: "15kg",
     size: "150cm x 70cm",
   },
   {
-    id: 2,
+    id: "6565a2bf979d9a62d55b2dee",
     category: "kitchen",
     img: Img2,
-    description: "Pop-Up Toaster",
+    description: "Máy nướng bánh mì bật lên",
     price: 45,
     otherImgs: [Toster1, Toster2],
     specs:
@@ -87,10 +87,10 @@ export const items = [
     size: "20xm x 10cm",
   },
   {
-    id: 3,
+    id: "6565a118979d9a62d55b2bf2",
     category: "lamp",
     img: Img3,
-    description: "Lamp Light Blue",
+    description: "Đèn màu xanh nhạt",
     price: 79,
     otherImgs: [LampBlue1, LampBlue2],
     specs:
@@ -100,10 +100,10 @@ export const items = [
     size: "15cm x 15cm",
   },
   {
-    id: 4,
+    id: "65659fe6979d9a62d55b2b5f",
     category: "furniture",
     img: Img4,
-    description: "Pulp Unit - 5 Compartments",
+    description: "Tủ xếp giấy",
     price: 254,
     otherImgs: [PulpUnit1, PulpUnit2],
     specs:
@@ -113,7 +113,7 @@ export const items = [
     size: "250cm x 60cm",
   },
   {
-    id: 5,
+    id: "6565a158979d9a62d55b2c19",
     category: "lamp",
     img: Img5,
     description: "Golden Modern Light",
@@ -126,10 +126,10 @@ export const items = [
     size: "20cm x 20cm",
   },
   {
-    id: 6,
+    id: "6565a382979d9a62d55b2e90",
     category: "skin-care",
     img: Img6,
-    description: "Body Oil 200ml",
+    description: "Dầu dưỡng thể 200ml",
     price: 67,
     otherImgs: [CleaningOil1, CleaningOil2],
     specs:
@@ -139,10 +139,10 @@ export const items = [
     size: "10cm x 5cm",
   },
   {
-    id: 7,
+    id: "6565a191979d9a62d55b2c43",
     category: "lamp",
     img: Img7,
-    description: "Black and White Lamp",
+    description: "Đèn đen trắng",
     price: 220,
     otherImgs: [BlackAndWhite1, BlackAndWhite2],
     specs:
@@ -152,10 +152,10 @@ export const items = [
     size: "20cm x 20cm",
   },
   {
-    id: 8,
+    id: "6565a040979d9a62d55b2b88",
     category: "furniture",
     img: Img8,
-    description: "Gejst Shelf A Black Ash/Black",
+    description: "Kệ",
     price: 115,
     otherImgs: [Shelf1, Shelf2],
     specs:
@@ -164,11 +164,15 @@ export const items = [
     weight: "10kg",
     size: "60cm x 20cm",
   },
+  
+];
+
+ const itemstrending = [
   {
-    id: 9,
+    id: "6565a07e979d9a62d55b2ba6",
     category: "furniture",
     img: Img9,
-    description: "Cube Lolo Vase Black",
+    description: "Bình Lolo Cube Màu Đen",
     price: 161,
     otherImgs: [Vase1, Vase2],
     specs:
@@ -178,20 +182,7 @@ export const items = [
     size: "45cm x 15cm",
   },
   {
-    id: 10,
-    category: "chair",
-    img: Img10,
-    description: "Traditional Armchair",
-    price: 89,
-    otherImgs: [ChairBoom1, ChairBoom2],
-    specs:
-      "Concept: &Tradition's Boomerang lounge chair is a classic Danish design with a modern and minimalist expression. The chair was designed by Hvidt & Mølgaard in 1956, and with its stylish cushions and hand-polished wooden frame, it is an ideal Nordic design that gives a personal mark to the home.",
-    texture: "Wood",
-    weight: "8kg",
-    size: "60cm x 40cm",
-  },
-  {
-    id: 11,
+    id: "6565a247979d9a62d55b2d29",
     category: "lamp",
     img: Img11,
     description: "The Sun Pendant Black",
@@ -204,10 +195,10 @@ export const items = [
     size: "20cm x 20cm",
   },
   {
-    id: 12,
+    id: "6565f8758ac8df0aa995b0a1",
     category: "lamp",
     img: Img12,
-    description: "Simple Golden Lamp",
+    description: "Đèn Vàng Đơn Giản",
     price: 220,
     otherImgs: [GoldenLamp1, GoldenLamp2],
     specs:
@@ -217,23 +208,10 @@ export const items = [
     size: "15cm x 15cm",
   },
   {
-    id: 13,
-    category: "skin-care",
-    img: Img13,
-    description: "Unbleached Cotton Pads 180",
-    price: 33,
-    otherImgs: [Cotton1, Cotton2],
-    specs:
-      "Cotton pads made from soft, unbleached cotton. These are made in Japan and made from 100% cotton.",
-    texture: "Cotton",
-    weight: "180g",
-    size: "20cm x 10cm",
-  },
-  {
-    id: 14,
+    id: "6565f8f78ac8df0aa995b0f1",
     category: "chair",
     img: Img14,
-    description: "Oak Spanish Chair",
+    description: "Ghế gỗ sồi Tây Ban Nha",
     price: 520,
     otherImgs: [WoodChair1, WoodChair2],
     specs:
@@ -243,20 +221,7 @@ export const items = [
     size: "60cm x 30cm",
   },
   {
-    id: 15,
-    category: "chair",
-    img: Img15,
-    description: "Copenhagen Armchair",
-    price: 330,
-    otherImgs: [Copenhagen1, Copenhagen2],
-    specs:
-      "Concept: The Hyg series by Danish Normann Copenhagen is a series of chairs based on the Danish word Hygge. The designer Simon Legald has tried to embody the meaning of the word around security, warmth and convenience in a furniture series. This is expression in the fine organic shapes and hearty curves that provide a high degree of sitting comfort and well-being in the chairs. ",
-    texture: "Wood",
-    weight: "14kg",
-    size: "65cm x 35cm",
-  },
-  {
-    id: 16,
+    id: "6565a0d3979d9a62d55b2bc7",
     category: "electronic",
     img: Img16,
     description: "Anti Dark Light",
@@ -269,36 +234,10 @@ export const items = [
     size: "15cm x 10cm",
   },
   {
-    id: 17,
-    category: "lamp",
-    img: Img17,
-    description: "Table Lamp",
-    price: 75,
-    otherImgs: [TableLamp1, TableLamp2],
-    specs:
-      "The lamp has also become popular in private homes and has especially made a comeback in recent years. This is not least due to the lamp's stylish design and the many color options that make it fit everywhere.",
-    texture: "Metal",
-    weight: "5kg",
-    size: "25cm x 15cm",
-  },
-  {
-    id: 18,
-    category: "lamp",
-    img: Img18,
-    description: "Mat Black Lamp",
-    price: 175,
-    otherImgs: [MatLamp1, MatLamp2],
-    specs:
-      "Unique offer We give you a special discount when you put this product in the basket. *Only applies to specific products.",
-    texture: "Metal",
-    weight: "6kg",
-    size: "20cm x 15cm",
-  },
-  {
-    id: 19,
+    id: "6565a34a979d9a62d55b2e57",
     category: "chair",
     img: Img19,
-    description: "Comfy Chair",
+    description: "Ghế Comfy",
     price: 119,
     otherImgs: [Comfy1, Comfy2],
     specs:
@@ -307,17 +246,8 @@ export const items = [
     weight: "25kg",
     size: "60cm x 30cm",
   },
-  {
-    id: 20,
-    category: "skin-care",
-    img: Img20,
-    description: "Body Oil 50ml",
-    price: 45,
-    otherImgs: [BodyOil1, BodyOil2],
-    specs:
-      "Made from 100% plant-based oils with olive oil as the main ingredient, this cleansing oil is gentle on the skin. Free from fragrance, colours and, mineral oils, paraben free, alcohol free, allergy tested (we cannot guarantee that it will not cause allergies in any users) * How to use: Take a small amount in the palm of your hand, and massage into the face to remove make-up and dirt. Rinse well with cold or warm water.",
-    texture: "Liquid",
-    weight: "50ml",
-    size: "10cm x 5cm",
-  },
 ];
+
+export {itemsproud, itemstrending}
+  
+
