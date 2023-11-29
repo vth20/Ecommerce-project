@@ -1,9 +1,9 @@
 import "./ProudProducts.css";
-import { items } from "../../static/allData";
+import { itemsproud } from "../../static/allData";
 import { Link } from "react-router-dom";
 
 function ProductItem() {
-  const filteredItems = items.filter((item) => item.id <= 8);
+  const filteredItems = itemsproud.filter((itemproud) => itemproud.id );
 
   return (
     <>
@@ -11,14 +11,14 @@ function ProductItem() {
         <div key={item.id} className="product normal">
           <Link
             onClick={() => window.top(0, 0)}
-            to={`/categories/product/${item.id}`}
+            to={`/product/${item.id}`}
           >
             <div className="product-header">
               <img src={item.img} alt="product1" />
             </div>
             <div className="product-details">
               <p>{item.description}</p>
-              <p className="item-price">{item.price}$</p>
+              <p className="item-price">{item.price}đ</p>
             </div>
           </Link>
         </div>

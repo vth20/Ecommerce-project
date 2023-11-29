@@ -5,6 +5,7 @@ import Header from "../components/Layout/Header";
 import ProductDetails from "../components/Products/ProductDetails";
 import SuggestedProduct from "../components/Products/SuggestedProduct";
 import { useSelector } from "react-redux";
+import Navbar from "../components/Layout/Navbar";
 
 const ProductDetailsPage = () => {
   const { allProducts } = useSelector((state) => state.products);
@@ -26,7 +27,8 @@ const ProductDetailsPage = () => {
 
   return (
     <div>
-      <Header />
+      <Navbar />
+      {/* <Header /> */}
       <ProductDetails data={data} />
         {
           !eventData && (
