@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useContext, useState } from "react";
-import { IconX, IconMenu2, IconShoppingCart } from '@tabler/icons-react';
+import { IconX, IconMenu2, IconShoppingCart, IconUser } from '@tabler/icons-react';
 import EmptyCart from '../cart/EmptyCart';
 import CartWithItems from '../cart/CartWithItems';
 import LogoImg2 from "../../img/newlogo1.png"
@@ -57,6 +57,12 @@ function Navbar() {
           >
             product page
           </Link>
+          <Link
+            onClick={() => setMobileNav(!mobileNav)}
+            to="/shop-create"
+          >
+            Become Seller
+          </Link>
         </div>
       </div>
 
@@ -105,23 +111,34 @@ function Navbar() {
               >
                 product page
               </Link>
+              <Link
+                onClick={() => setMobileNav(!mobileNav)}
+                to="/shop-create"
+              >
+                Become Seller
+              </Link>
+              <Link
+                onClick={() => setMobileNav(!mobileNav)}
+                to="/login"
+              >
+                <IconUser />
+              </Link>
               <i
                 data-array-length={cartItem.length}
                 onClick={openCart}
-                className={`${
-                  cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
-                }`}
+                className={`${cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
+                  }`}
               >
                 <IconShoppingCart />
               </i>
+              
             </div>
             <div className="hamburger-menu">
               <i
                 data-array-length={cartItem.length}
                 onClick={openCart}
-                className={`hamburger-cart ${
-                  cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
-                }`}
+                className={`hamburger-cart ${cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
+                  }`}
               >
                 <IconShoppingCart />
               </i>
