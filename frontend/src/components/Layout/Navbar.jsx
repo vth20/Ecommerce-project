@@ -15,7 +15,6 @@ function Navbar() {
   const [cart, setCart] = useState(false);
 
   const { cartItem } = useContext(CartContext);
-  console.log('cartItem:', cartItem);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -98,7 +97,7 @@ function Navbar() {
                 onClick={scrollToTop}
                 src={LogoImg2}
                 alt="logo"
-                className="logo-img"
+                className="logo-img font"
               />
             </Link>
             <div className="nav-links">
