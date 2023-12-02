@@ -138,9 +138,9 @@ const Header = ({ activeHeading }) => {
             </div>
           </div>
           {/* navitems */}
-          <div className={`${styles.noramlFlex}`}>
+          {/* <div className={`${styles.noramlFlex}`}>
             <Navbar active={activeHeading} />
-          </div>
+          </div> */}
 
           <div className="flex">
             <div className={`${styles.noramlFlex}`}>

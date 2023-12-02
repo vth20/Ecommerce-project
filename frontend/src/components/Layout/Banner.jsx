@@ -10,7 +10,7 @@ function Banner({ title, text, img }) {
             <div className="text">
               <h2>{title}</h2>
               <p>{text}</p>
-              <Link onClick={() => window.scrollTo(0, 0)} to="categories/all">
+              <Link onClick={() => window.scrollTo(0, 0)} to="categories">
                 <button>Shop now</button>
               </Link>
             </div>
