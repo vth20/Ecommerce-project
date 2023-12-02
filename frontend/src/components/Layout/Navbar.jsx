@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { IconX, IconMenu2, IconShoppingCart } from '@tabler/icons-react';
 import EmptyCart from '../cart/EmptyCart';
 import CartWithItems from '../cart/CartWithItems';
-import LogoImg2 from "../../img/newlogo2.png"
+import LogoImg2 from "../../img/newlogo1.png"
 import { CartContext } from '../../pages/ProductsPage';
 import "./Navbar.css"
 
