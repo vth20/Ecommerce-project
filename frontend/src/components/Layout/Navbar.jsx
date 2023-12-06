@@ -42,7 +42,7 @@ function Navbar() {
 
   return (
     <>
-      <div
+      {/* <div
         className={`mobile-nav-full ${mobileNav ? "open-flex" : "closed-flex"}`}
       >
         <IconX onClick={() => setMobileNav(!mobileNav)} className="x-mobile" />
@@ -61,7 +61,7 @@ function Navbar() {
             Become Seller
           </Link>
         </div>
-      </div>
+      </div> */}
 
       {/* overlay */}
       <div
@@ -103,6 +103,12 @@ function Navbar() {
                 categories
               </Link>
 
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to="/product/6565a303979d9a62d55b2e21"
+              >
+                product page
+              </Link>
               <Link
                 onClick={() => setMobileNav(!mobileNav)}
                 to="/shop-create"
