@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IconX, IconMenu2, IconShoppingCart, IconUser } from '@tabler/icons-react';
 import EmptyCart from '../cart/EmptyCart';
 import CartWithItems from '../cart/CartWithItems';
 import LogoImg2 from "../../img/newlogo1.png"
 import { CartContext } from '../../pages/ProductsPage';
 import "./Navbar.css"
-
-
-
+import CartList from "../../components/cart/CartList"
+import { useSelector } from "react-redux";
+import { CgProfile } from "react-icons/cg";
 function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
-
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const { cartItem } = useContext(CartContext);
   console.log('cartItem:', cartItem);
 
@@ -30,14 +30,19 @@ function Navbar() {
   };
 
   window.addEventListener("scroll", handleScroll);
-
+  const [cartLocal, setCartLocal] = useState([])
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
+  useEffect(()=> {
+    const carts = JSON.parse(localStorage.getItem("cartItems"));
+    console.log(carts);
+    setCartLocal(carts)
+  }, [])
+  console.log(cartItem);
   return (
     <>
       {/* <div
@@ -82,10 +87,10 @@ function Navbar() {
         </div>
 
         <div className="cart-body">
-          {cartItem.length < 1 ? (
+          {cartLocal.length < 1 ? (
             <EmptyCart openCart={openCart} />
           ) : (
-            <CartWithItems />
+            <CartList cartItem={cartLocal} />
           )}
         </div>
       </div>
@@ -117,12 +122,19 @@ function Navbar() {
               >
                 Become Seller
               </Link>
-              <Link
-                onClick={() => setMobileNav(!mobileNav)}
-                to="/login"
-              >
-                <IconUser />
-              </Link>
+              {isAuthenticated ? (
+                  <Link to="/profile">
+                    <img
+                      src={`${user?.avatar?.url}`}
+                      className="w-[35px] h-[35px] rounded-full"
+                      alt=""
+                    />
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+                  </Link>
+                )}
               <i
                 data-array-length={cartItem.length}
                 onClick={openCart}
