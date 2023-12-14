@@ -9,7 +9,6 @@ const cloudinary = require("cloudinary");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 const sendShopToken = require("../utils/shopToken");
-const shop = require("../model/shop");
 const { verificationEmailTemplate } = require("../utils/EmailTemplates");
 
 // create shop
@@ -48,7 +47,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
       await sendMail({
         email: seller.email,
-        subject: "E-commerce - Activate your account",
+        subject: "Activate your Shop",
         message: emailTemplate,
       });
       res.status(201).json({
