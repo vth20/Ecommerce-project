@@ -5,6 +5,8 @@ import EmptyCart from '../cart/EmptyCart';
 import CartWithItems from '../cart/CartWithItems';
 import LogoImg2 from "../../img/newlogo1.png"
 import { CartContext } from '../../pages/ProductsPage';
+import Cart from "../cart/Cart";
+import Wishlist from "../Wishlist/Wishlist";
 import "./Navbar.css"
 
 
@@ -13,6 +15,8 @@ function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const [openWishlist, setOpenWishlist] = useState(false);
 
   const { cartItem } = useContext(CartContext);
   console.log('cartItem:', cartItem);
@@ -25,9 +29,7 @@ function Navbar() {
     }
   };
 
-  const openCart = () => {
-    setCart(!cart);
-  };
+
 
   window.addEventListener("scroll", handleScroll);
 
@@ -51,12 +53,7 @@ function Navbar() {
           <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
             lamps
           </Link>
-          <Link
-            onClick={() => setMobileNav(!mobileNav)}
-            to="/categories/product/19"
-          >
-            product page
-          </Link>
+
           <Link
             onClick={() => setMobileNav(!mobileNav)}
             to="/shop-create"
@@ -105,12 +102,7 @@ function Navbar() {
               <Link onClick={() => window.scrollTo(0, 0)} to="/categories">
                 categories
               </Link>
-              <Link
-                onClick={() => window.scrollTo(0, 0)}
-                to="/categories/product/19"
-              >
-                product page
-              </Link>
+
               <Link
                 onClick={() => setMobileNav(!mobileNav)}
                 to="/shop-create"
@@ -125,13 +117,20 @@ function Navbar() {
               </Link>
               <i
                 data-array-length={cartItem.length}
-                onClick={openCart}
+                onClick={() => setOpenCart(true)}
                 className={`${cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
                   }`}
               >
                 <IconShoppingCart />
               </i>
-              
+              {/* cart popup */}
+              {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
+
+              {/* wishlist popup */}
+              {openWishlist ? (
+                <Wishlist setOpenWishlist={setOpenWishlist} />
+              ) : null}
+
             </div>
             <div className="hamburger-menu">
               <i
