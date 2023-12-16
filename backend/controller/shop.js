@@ -76,7 +76,6 @@ router.get(
   catchAsyncErrors(async (req, res, next) => {
     try {
       const  activation_token  = req.params.token;
-
       const newSeller = jwt.verify(
         activation_token,
         process.env.ACTIVATION_SECRET
