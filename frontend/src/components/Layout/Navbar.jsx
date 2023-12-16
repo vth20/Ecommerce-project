@@ -133,7 +133,7 @@ function Navbar() {
                   </Link>
                 ) : (
                   <Link to="/login">
-                    <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+                    <IconUser/>
                   </Link>
                 )}
               <i
