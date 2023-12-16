@@ -19,8 +19,6 @@ function Navbar() {
   const [openWishlist, setOpenWishlist] = useState(false);
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const [openCart, setOpenCart] = useState(false);
-  const [openWishlist, setOpenWishlist] = useState(false);
 
   const { cartItem } = useContext(CartContext);
   console.log('cartItem:', cartItem);

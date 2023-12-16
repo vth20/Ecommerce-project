@@ -6,8 +6,10 @@ import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Singup = () => {
+  const { navigate } = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +39,7 @@ const Singup = () => {
         setEmail("");
         setPassword("");
         setAvatar();
+        navigate("/login");
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -112,13 +115,13 @@ const Singup = () => {
                 />
                 {visible ? (
                   <AiOutlineEye
-                    className="absolute right-2 top-2 cursor-pointer"
+                    className="absolute right-2 top-0 cursor-pointer"
                     size={25}
                     onClick={() => setVisible(false)}
                   />
                 ) : (
                   <AiOutlineEyeInvisible
-                    className="absolute right-2 top-2 cursor-pointer"
+                    className="absolute right-2 top-0 cursor-pointer"
                     size={25}
                     onClick={() => setVisible(true)}
                   />
