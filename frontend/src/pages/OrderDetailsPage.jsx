@@ -6,9 +6,9 @@ import UserOrderDetails from "../components/UserOrderDetails";
 const OrderDetailsPage = () => {
   return (
     <div>
-        <Header />
-        <UserOrderDetails />
-        <Footer />
+      <Header />
+      <UserOrderDetails />
+      <Footer />
     </div>
   )
 }
