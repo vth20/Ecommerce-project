@@ -424,3 +424,7 @@
     top: 3rem;
     cursor: pointer;
 }
+
+.header-logo{
+    max-width: 62.5%;
+}
