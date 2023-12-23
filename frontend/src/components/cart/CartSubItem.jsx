@@ -50,7 +50,7 @@ function CartSubItem({item}) {
             </div>
           </div>
           <div className="cart-right">
-            <p className="cart-price">{calcPrice(quantity, item.price)}vnd</p>
+            <p className="cart-price">{calcPrice(quantity, item.price)}$</p>
             {/* <IconX onClick={() => removeFromCart(item.id)} /> */}
           </div>
         </div>

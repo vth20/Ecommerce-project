@@ -18,7 +18,7 @@ function ProductItem() {
             </div>
             <div className="product-details">
               <p>{item.description}</p>
-              <p className="item-price">{item.price}VND</p>
+              <p className="item-price">{item.price}$</p>
             </div>
           </Link>
         </div>
