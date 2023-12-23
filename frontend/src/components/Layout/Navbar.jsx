@@ -40,7 +40,7 @@ function Navbar() {
       behavior: "smooth",
     });
   };
- 
+
   return (
     <>
       {/* <div
