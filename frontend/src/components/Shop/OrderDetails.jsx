@@ -129,6 +129,10 @@ const OrderDetails = () => {
         <div className="w-full 800px:w-[40%]">
           <h4 className="pt-3 text-[20px]">Payment Info:</h4>
           <h4>
+            Type:{" "}
+            {data?.paymentInfo?.type ? data?.paymentInfo?.type : "Not Paid"}
+          </h4>
+          <h4>
             Status:{" "}
             {data?.paymentInfo?.status ? data?.paymentInfo?.status : "Not Paid"}
           </h4>
