@@ -131,6 +131,14 @@ function Navbar() {
               >
                 <IconShoppingCart />
               </i>
+              <i
+                data-array-length={cartItem.length}
+                onClick={() => setOpenWishlist(true)}
+                className={`${cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
+                  }`}
+              >
+                <IconHeart />
+              </i>
               {/* cart popup */}
               {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
 
