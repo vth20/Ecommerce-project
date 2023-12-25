@@ -11,6 +11,7 @@ require("dotenv").config({
 });
 
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
