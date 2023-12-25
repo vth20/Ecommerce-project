@@ -5,8 +5,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
-app.options('*', cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://ecommerce-project-fe.vercel.app",
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
