@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from "react";
-import { IconX, IconMenu2, IconShoppingCart, IconUser } from '@tabler/icons-react';
+import { IconX, IconMenu2, IconShoppingCart, IconUser, IconHeart } from '@tabler/icons-react';
 import EmptyCart from '../cart/EmptyCart';
 import CartWithItems from '../cart/CartWithItems';
 import LogoImg2 from "../../img/newlogo1.png"
@@ -34,19 +34,13 @@ function Navbar() {
 
 
   window.addEventListener("scroll", handleScroll);
-  const [cartLocal, setCartLocal] = useState([])
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-  useEffect(()=> {
-    const carts = JSON.parse(localStorage.getItem("cartItems"));
-    console.log(carts);
-    setCartLocal(carts)
-  }, [])
-  console.log(cartItem);
+ 
   return (
     <>
       {/* <div
@@ -85,13 +79,6 @@ function Navbar() {
           <IconX onClick={openCart} />
         </div>
 
-        <div className="cart-body">
-          {cartLocal.length < 1 ? (
-            <EmptyCart openCart={openCart} />
-          ) : (
-            <CartList cartItem={cartLocal} />
-          )}
-        </div>
       </div>
 
       <nav className="navbar">
