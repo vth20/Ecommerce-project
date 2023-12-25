@@ -127,7 +127,7 @@ const Payment = () => {
         toast.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
-          order.paymnentInfo = {
+          order.paymentInfo = {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
             type: "Credit Card",
@@ -141,7 +141,7 @@ const Payment = () => {
               toast.success("Order successful!");
               localStorage.setItem("cartItems", JSON.stringify([]));
               localStorage.setItem("latestOrder", JSON.stringify([]));
-              window.location.reload();
+              // window.location.reload();
             });
         }
       }
@@ -288,7 +288,7 @@ const PaymentInfo = ({
                   />
                 </div>
                 <div className="w-[50%]">
-                  <label className="block pb-2">CVV</label>
+                  <label className="block pb-2">CVC</label>
                   <CardCvcElement
                     className={`${styles.input} !h-[35px]`}
                     options={{
