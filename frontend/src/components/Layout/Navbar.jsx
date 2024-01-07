@@ -40,7 +40,7 @@ function Navbar() {
       behavior: "smooth",
     });
   };
- 
+
   return (
     <>
       {/* <div
@@ -96,14 +96,6 @@ function Navbar() {
               <Link onClick={() => window.scrollTo(0, 0)} to="/categories">
                 categories
               </Link>
-
-              <Link
-                onClick={() => window.scrollTo(0, 0)}
-                to="/product/6565a303979d9a62d55b2e21"
-              >
-                product page
-              </Link>
-
               <Link
                 onClick={() => setMobileNav(!mobileNav)}
                 to="/shop-create"
@@ -111,18 +103,18 @@ function Navbar() {
                 Become Seller
               </Link>
               {isAuthenticated ? (
-                  <Link to="/profile">
-                    <img
-                      src={`${user?.avatar?.url}`}
-                      className="w-[35px] h-[35px] rounded-full"
-                      alt=""
-                    />
-                  </Link>
-                ) : (
-                  <Link to="/login">
-                    <IconUser/>
-                  </Link>
-                )}
+                <Link to="/profile">
+                  <img
+                    src={`${user?.avatar?.url}`}
+                    className="w-[35px] h-[35px] rounded-full"
+                    alt=""
+                  />
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <IconUser />
+                </Link>
+              )}
               <i
                 data-array-length={cartItem.length}
                 onClick={() => setOpenCart(true)}
