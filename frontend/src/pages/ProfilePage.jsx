@@ -5,6 +5,7 @@ import Loader from "../components/Layout/Loader";
 import ProfileSideBar from "../components/Profile/ProfileSidebar";
 import ProfileContent from "../components/Profile/ProfileContent";
 import { useSelector } from "react-redux";
+import Navbar from "../components/Layout/Navbar";
 
 const ProfilePage = () => {
   const { loading } = useSelector((state) => state.user);
@@ -16,8 +17,8 @@ const ProfilePage = () => {
         <Loader />
       ) : (
         <>
-          <Header />
-          <div className={`${styles.section} flex bg-[#f5f5f5] py-10`}>
+          <Navbar />
+          <div className={`${styles.section} flex bg-[#f5f5f5] py-20 mt-40`}>
             <div className="w-[50px] 800px:w-[335px] sticky 800px:mt-0 mt-[18%]">
               <ProfileSideBar active={active} setActive={setActive} />
             </div>
