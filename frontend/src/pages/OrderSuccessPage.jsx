@@ -3,11 +3,12 @@ import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Lottie from "react-lottie";
 import animationData from "../Assests/animations/107043-success.json";
+import Navbar from "../components/Layout/Navbar";
 
 const OrderSuccessPage = () => {
   return (
     <div>
-      <Header />
+      <Navbar />
       <Success />
       <Footer />
     </div>
@@ -25,6 +26,7 @@ const Success = () => {
   };
   return (
     <div>
+      <div className="mt-40"></div>
       <Lottie options={defaultOptions} width={300} height={300} />
       <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
         Your order is successful 😍

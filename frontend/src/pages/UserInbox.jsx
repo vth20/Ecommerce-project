@@ -7,6 +7,7 @@ import { server } from "../server";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
+import Navbar from "../components/Layout/Navbar";
 import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
 const ENDPOINT = "http://localhost:4000/";
@@ -208,10 +209,10 @@ const UserInbox = () => {
   }, [messages]);
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-48">
       {!open && (
         <>
-          <Header />
+          <Navbar />
           <h1 className="text-center text-[30px] py-3 font-Poppins">
             All Messages
           </h1>
